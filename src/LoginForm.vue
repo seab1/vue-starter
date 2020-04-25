@@ -2,30 +2,41 @@
     <div>
         <label>Zaloguj siÄ™ e-mailem</label>
         <input type="email" v-model="email">
-        <button @click="enter()"> {{ buttonLabel }}</button>
+        <button @click="enter()"> {{ buttonLabelToDisplay }}</button>
     </div>
 </template>
 
 <script>
-    export default {
+	export default
+	{
 		props: ['buttonLabel'],
 
-        data() {
+		data()
+		{
             return {
                 email: ''
             }
 		},
 		
-        methods: {
-            enter() {
+		methods:
+		{
+			enter()
+			{
                 this.$emit('login', this.email);
             }
 		},
 		
-		mounted() {
-  			if (!this.buttonLabel) {
-    		this.buttonLabel = 'Zaloguj siê';
-  		}
-}
+		/*mounted()
+		{
+			if (!this.buttonLabel)
+			{
+				this.buttonLabel = 'Zaloguj siê';
+  			}
+		},*/
+
+		computed:
+		{
+			buttonLabelToDisplay() {return this.buttonLabel || 'Zaloguj siê';}
+		}
     }
 </script>
