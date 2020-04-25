@@ -1,37 +1,48 @@
 <template>
-    <div>
-        <h1>Witaj w systemie do zapisów na zajęcia</h1>
-
-        <div v-if="authenticatedUsername">
-            <h2>Witaj {{ authenticatedUsername }}</h2>
-            <a @click="logMeOut()">Wyloguj</a>
-        </div>
-
-        <div v-else>
-            <login-form @login="logMeIn($event)"></login-form>
-        </div>
-
+  <div id>
+    <h1>Welcome to the login system</h1>
+    <div v-if="loggedIn != 'nobody'">
+      <h2> Bonjour, {{ loggedIn }} </h2>
+      <p @click="logout()" style="color:blue;"> Wyloguj </p>
     </div>
+
+    <div v-else>
+      <login-form @login="sayBonjour($event)"></login-form>
+    </div>
+  </div>
 </template>
 
 <script>
-    import "milligram";
-    import LoginForm from "./LoginForm";
+import "milligram";
+import LoginForm from "./LoginForm"
 
-    export default {
-        components: {LoginForm},
-        data() {
-            return {
-                authenticatedUsername: '',
-            }
-        },
-        methods: {
-            logMeIn(username) {
-                this.authenticatedUsername = username;
-            },
-            logMeOut() {
-                this.authenticatedUsername = '';
-            }
-        }
+export default {
+  components: {LoginForm},
+
+  data() {
+    return {
+      loggedIn: 'nobody'
+  };
+  },
+
+  methods:
+  {
+    sayBonjour(givenEmail)
+    {
+      this.loggedIn = givenEmail;
+    },
+
+    logout()
+    {
+      this.loggedIn = 'nobody';
+      this.email = '';
     }
+  }
+}
+
+
 </script>
+
+<style>
+
+</style>
