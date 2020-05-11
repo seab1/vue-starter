@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label>Zaloguj siÄ™ e-mailem</label>
+        <label>Log in with e-mail</label>
         <input type="email" v-model="email">
         <button @click="enter()"> {{ buttonLabelToDisplay }}</button>
     </div>
@@ -30,13 +30,13 @@
 		{
 			if (!this.buttonLabel)
 			{
-				this.buttonLabel = 'Zaloguj siê';
+				this.buttonLabel = 'Log in';
   			}
 		},*/
 
 		computed:
 		{
-			buttonLabelToDisplay() {return this.buttonLabel || 'Zaloguj siê';}
+			buttonLabelToDisplay() {return this.buttonLabel || 'Log in';}
 		}
     }
 </script>

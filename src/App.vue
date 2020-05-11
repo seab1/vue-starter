@@ -3,7 +3,7 @@
     <h1>Welcome to the login system</h1>
     <div v-if="loggedIn != 'nobody'">
       <h2> Bonjour, {{ loggedIn }} </h2>
-      <p @click="logout()" style="color:blue;"> Wyloguj </p>
+      <p @click="logout()" style="color:blue;"> Log out </p>
     </div>
 
     <div v-else>
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       loggedIn: 'nobody'
-  };
+    };
   },
 
   methods:
@@ -35,7 +35,6 @@ export default {
     logout()
     {
       this.loggedIn = 'nobody';
-      this.email = '';
     }
   }
 }
