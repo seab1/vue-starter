@@ -1,13 +1,13 @@
 <template>
   <div id>
     <h1>Welcome to the login system</h1>
-    <div v-if="loggedIn != 'nobody'">
+    <div v-show="loggedIn">
       <h2> Bonjour, {{ loggedIn }} </h2>
-      <p @click="logout()" style="color:blue;"> Log out </p>
+      <p :email="loggedIn" @click="logout()" style="color:blue;"> Log out </p>
       <meeting-page></meeting-page>
     </div>
 
-    <div v-else>
+    <div v-show="!loggedIn">
       <login-form @login="sayBonjour($event)"></login-form>
     </div>
   </div>
@@ -25,7 +25,7 @@ export default {
 
   data() {
     return {
-      loggedIn: 'nobody'
+      loggedIn: ''
     };
   },
 
@@ -38,7 +38,7 @@ export default {
 
     logout()
     {
-      this.loggedIn = 'nobody';
+      this.loggedIn = '';
     }
   }
 }
