@@ -9,8 +9,6 @@
 <script>
 	export default
 	{
-		props: ['buttonLabel'],
-
 		data()
 		{
             return {
@@ -25,14 +23,6 @@
                 this.$emit('login', this.email);
             }
 		},
-		
-		/*mounted()
-		{
-			if (!this.buttonLabel)
-			{
-				this.buttonLabel = 'Log in';
-  			}
-		},*/
 
 		computed:
 		{

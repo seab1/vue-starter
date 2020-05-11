@@ -4,6 +4,7 @@
     <div v-if="loggedIn != 'nobody'">
       <h2> Bonjour, {{ loggedIn }} </h2>
       <p @click="logout()" style="color:blue;"> Log out </p>
+      <meeting-page></meeting-page>
     </div>
 
     <div v-else>
@@ -14,10 +15,13 @@
 
 <script>
 import "milligram";
-import LoginForm from "./LoginForm"
+import LoginForm from "./LoginForm";
+import MeetingPage from "./MeetingPage";
+import NewMeetingForm from "./NewMeetingForm";
+import MeetingsList from "./MeetingsList";
 
 export default {
-  components: {LoginForm},
+  components: {LoginForm, MeetingPage, NewMeetingForm, MeetingsList},
 
   data() {
     return {
