@@ -1,7 +1,7 @@
 <template>
     <div>
        <h2>Classes</h2>
-	   <button v-if="!meetingBeingAdded" @click="addingMeetingPossible()">Add new meeting</button>
+	   <button v-if="!seizeForm" @click="addingMeetingPossible()">Add new meeting</button>
        <new-meeting-form v-else @added="addNewMeeting($event)"></new-meeting-form>
        <meetings-list :meetings="meetings"></meetings-list>
     </div>
@@ -13,15 +13,15 @@ import MeetingsList from "./MeetingsList";
 
 export default {
   components: {NewMeetingForm, MeetingsList},
+  props: ['seizeForm'],
   data() {
       return {
-		  meetings: [],
-		  meetingBeingAdded: false
-      };
+		  meetings: []
+	  };
   },
   methods: {
-	  addNewMeeting(meeting) {this.meetings.push(meeting); this.meetingBeingAdded=false;},
-	  addingMeetingPossible() {this.meetingBeingAdded=true;}
+	  addNewMeeting(meeting) {this.meetings.push(meeting); this.seizeForm=false;},
+	  addingMeetingPossible() {this.seizeForm=true;}
   }
 }
 </script>

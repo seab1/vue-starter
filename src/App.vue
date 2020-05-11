@@ -3,8 +3,8 @@
     <h1>Welcome to the login system</h1>
     <div v-show="loggedIn">
       <h2> Bonjour, {{ loggedIn }} </h2>
-      <p :email="loggedIn" @click="logout()" style="color:blue;"> Log out </p>
-      <meeting-page></meeting-page>
+      <p @click="logout()" style="color:blue;"> Log out </p>
+      <meeting-page :seizeForm=forceClose></meeting-page>
     </div>
 
     <div v-show="!loggedIn">
@@ -25,7 +25,8 @@ export default {
 
   data() {
     return {
-      loggedIn: ''
+      loggedIn: '',
+      forceClose: false
     };
   },
 

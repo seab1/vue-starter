@@ -9,8 +9,6 @@
 <script>
 	export default
 	{
-		props: ['email'],
-
 		data()
 		{
             return {
@@ -22,7 +20,8 @@
 		{
 			enter()
 			{
-                this.$emit('login', this.email);
+				this.$emit('login', this.email);
+				this.email='';
             }
 		},
 
