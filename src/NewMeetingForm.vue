@@ -5,7 +5,8 @@
             <input type="text" v-model="newMeeting.name">
             <label>Description</label>
             <textarea v-model="newMeeting.description"></textarea>
-            <button>Add</button>
+			<h5 v-if="!newMeeting.name" style="color:red;">Please insert meeting name!</h5>
+            <button v-else>Add</button>
         </form>
 </template>
 

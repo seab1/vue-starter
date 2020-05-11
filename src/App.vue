@@ -2,8 +2,10 @@
   <div id>
     <h1>Welcome to the login system</h1>
     <div v-show="loggedIn">
-      <h2> Bonjour, {{ loggedIn }} </h2>
-      <button @click="logout()"> Log out </button>
+      <table>
+      <th><h2> Bonjour, {{ loggedIn }}</h2></th>
+      <th><button @click="logout()"> Log out </button></th>
+      </table>
       <meeting-page :seizeForm=forceClose></meeting-page>
     </div>
 
