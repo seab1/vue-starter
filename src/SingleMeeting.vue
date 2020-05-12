@@ -15,6 +15,11 @@
 				<td width="0px"></td>
 				<td width="0px" style="text-align:center;"><button @click="resignMe()">Sign out</button></td>
 				</span>
+
+				<span v-if="participants.length > 0 && !participants.includes(this.userWannabe)">
+				<td width="0px"></td>
+				<td width="0px" style="text-align:center;"><button @click="assignMe()">Sign in</button></td>
+				</span>
         </tbody>
     </table>
 </template>
