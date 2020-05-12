@@ -11,7 +11,7 @@
 	<table>
         <tbody>
             <tr v-for="meeting in meetings" :key="meeting.name">
-                <single-meeting :meetingName=meeting.name :meetingDescription=meeting.description
+                <single-meeting :meetingName=meeting.name :meetingDescription=meeting.description :userWannabe=user
 				@deleteEmptyMeeting="deleteMeeting($event)"></single-meeting>
             </tr>
         </tbody>
@@ -24,7 +24,7 @@ import SingleMeeting from "./SingleMeeting";
 
 export default {
 	components: {SingleMeeting},
-	props: ['meetings'],
+	props: ['meetings', 'user'],
 	methods:
 	{
 		deleteMeeting(nameToBeDeleted)

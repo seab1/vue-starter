@@ -6,7 +6,7 @@
       <th><h2> Bonjour, {{ loggedIn }}</h2></th>
       <th><button @click="logout()"> Log out </button></th>
       </table>
-      <meeting-page :seizeForm=forceClose></meeting-page>
+      <meeting-page :seizeForm=forceClose :user=loggedIn></meeting-page>
     </div>
 
     <div v-show="!loggedIn">

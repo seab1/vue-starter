@@ -16,7 +16,7 @@
 
 <script>
 export default {
-	props: ['meetingName', 'meetingDescription'],
+	props: ['meetingName', 'meetingDescription', 'userWannabe'],
 
 	data() {
 		return {
@@ -33,7 +33,7 @@ export default {
 
 		assignMe()
 		{
-			this.participants.push();
+			if(!this.participants.includes(this.userWannabe)) this.participants.push(this.userWannabe);
 		}
 	}
 }

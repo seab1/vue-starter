@@ -5,7 +5,7 @@
        <new-meeting-form v-else @added="addNewMeeting($event)"></new-meeting-form>
 	   <h4 v-if="meetings.length == 0" style="padding-top: 40px">No meetings yet!</h4>
 	   <h4 v-else style="padding-top: 40px">Planned meetings ({{meetings.length}})</h4>
-       <meetings-list :meetings="meetings"></meetings-list>
+       <meetings-list :meetings="meetings" :user="user"></meetings-list>
     </div>
 </template>
 
@@ -15,7 +15,7 @@ import MeetingsList from "./MeetingsList";
 
 export default {
   components: {NewMeetingForm, MeetingsList},
-  props: ['seizeForm'],
+  props: ['seizeForm', 'user'],
   data() {
       return {
 		  meetings: []
