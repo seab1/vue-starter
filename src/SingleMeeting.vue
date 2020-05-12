@@ -10,6 +10,11 @@
 				<td width="0px" style="text-align:center"><button @click="deleteMe()">Delete</button></td>
 				<td width="0px" style="text-align:center; padding:0"><button @click="assignMe()">Sign in</button></td>
 				</span>
+
+				<span v-if="participants.length > 0 && participants.includes(this.userWannabe)">
+				<td width="0px"></td>
+				<td width="0px" style="text-align:center;"><button @click="resignMe()">Sign out</button></td>
+				</span>
         </tbody>
     </table>
 </template>
@@ -34,6 +39,14 @@ export default {
 		assignMe()
 		{
 			if(!this.participants.includes(this.userWannabe)) this.participants.push(this.userWannabe);
+		},
+
+		resignMe()
+		{
+			if(this.participants.includes(this.userWannabe))
+			{
+				this.participants.splice(this.participants.indexOf(this.userWannabe), 1);
+			}
 		}
 	}
 }
